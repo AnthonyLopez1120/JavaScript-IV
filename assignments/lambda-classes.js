@@ -35,7 +35,7 @@ class Student extends Person{
         this.favSubjects = attrs.favSubjects
     };
     listSubjects(){
-        return this.favSubjects;
+        return this.favSubjects.toString();
     };
     PRAssignment(subject){
         return `${this.name} has submitted a PR for ${subject}`
@@ -74,7 +74,7 @@ const fred = new Instructor({
     age: 35,
     previousBackground: 'None',
     className: 'Web 25',
-    favSubjects: ["HTML", "CSS", "JavaScript"]
+    favSubjects: [" HTML", " CSS", " JavaScript"]
   });
 
   const austin = new ProjectManager({
