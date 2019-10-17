@@ -27,8 +27,8 @@ class GameObject{
 
   
   class CharacterStats extends GameObject{
-      constructor(attrs){
-          super(attrs);
+    constructor(attrs){
+      super(attrs);
         this.healthPoints = attrs.healthPoints
       };
       takeDamage(){
@@ -37,15 +37,18 @@ class GameObject{
   };
    
   class Humanoid extends CharacterStats{
-      super(attrs){
+    constructor(attrs){
+      super(attrs);
           this.team = attrs.team,
           this.weapons = attrs. weapons,
           this.language = attrs.language
-      };
+    };
+      
       greet(){
           return `${this.name} offers a greeting in ${this.language}`
-        }; 
-  };
+  
+        };
+      };
   
   
   
