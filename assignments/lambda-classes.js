@@ -105,3 +105,4 @@ console.log(anthony.sprintChallenge("JavaScript Fundamentals"))
 console.log(austin.catchPhrase);
 console.log(austin.debugsCode("anthony", "java"));
 console.log(austin.standUp('web25_austin'));
+//////stretch////
