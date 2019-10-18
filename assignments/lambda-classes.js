@@ -25,6 +25,9 @@ class Instructor extends Person{
     grade(student, subject){
         return `${student} receives a perfect score on ${subject}`
     };
+    gradeStudent(student) {
+        return student.grade = Math.floor((Math.random() * 100));
+    }
 };
 
 class Student extends Person{
@@ -32,7 +35,8 @@ class Student extends Person{
         super(attrs);
         this.previousBackground = attrs.previousBackground,
         this.className = attrs.className,
-        this.favSubjects = attrs.favSubjects
+        this.favSubjects = attrs.favSubjects,
+        this.grade = attrs.grade;
     };
     listSubjects(){
         return this.favSubjects.toString();
@@ -42,6 +46,13 @@ class Student extends Person{
     };
     sprintChallenge(subject){
         return `${this.name} has begun sprint challenge on ${subject}`
+    }
+    graduate(){
+        if(this.grade <70){
+            return `${this.name} needs to think about their choices`;
+        }else{
+            return `${this.name} has graduated Lambda School and is making major cheddah!`
+        }
     }
 };
 
@@ -59,6 +70,8 @@ class ProjectManager extends Instructor{
     };
 };
 
+
+//*******************NEW OBJECTS*******************************************/
 const fred = new Instructor({
     name: 'Fred',
     location: 'Bedrock',
@@ -74,7 +87,8 @@ const fred = new Instructor({
     age: 35,
     previousBackground: 'None',
     className: 'Web 25',
-    favSubjects: [" HTML", " CSS", " JavaScript"]
+    favSubjects: [" HTML", " CSS", " JavaScript"],
+    grade: 100
   });
 
   const austin = new ProjectManager({
@@ -91,12 +105,12 @@ const fred = new Instructor({
 
 
 //*************************************/INSTRUCTOR TEST****************************************//
-console.log(fred.speak());
+console.log(fred.name);
 console.log(fred.demo("HTML"));
 console.log(fred.grade("Anthony", "Classes"))
 
 //*************************************/STUDENT TEST****************************************//
-
+console.log(anthony.grade)
 console.log(anthony.PRAssignment('Prototypes'));
 console.log(anthony.listSubjects());
 console.log(anthony.sprintChallenge("JavaScript Fundamentals"))
@@ -106,3 +120,21 @@ console.log(austin.catchPhrase);
 console.log(austin.debugsCode("anthony", "java"));
 console.log(austin.standUp('web25_austin'));
 //////stretch////
+console.log(anthony.graduate());
+
+console.log(fred.gradeStudent(anthony));
+console.log(anthony.graduate());
+
+console.log(austin.gradeStudent(anthony));
+console.log(anthony.graduate());
+
+
+console.log(austin.gradeStudent(anthony));
+console.log(anthony.graduate());
+
+console.log(austin.gradeStudent(anthony));
+console.log(anthony.graduate());
+
+
+
+
