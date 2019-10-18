@@ -25,6 +25,10 @@ class Instructor extends Person{
     grade(student, subject){
         return `${student} receives a perfect score on ${subject}`
     };
+    gradeStudent(student){
+        student.grade = Math.random()*100;
+        return student.grade.toFixed();
+    }
 };
 
 class Student extends Person{
@@ -32,7 +36,8 @@ class Student extends Person{
         super(attrs);
         this.previousBackground = attrs.previousBackground,
         this.className = attrs.className,
-        this.favSubjects = attrs.favSubjects
+        this.favSubjects = attrs.favSubjects,
+        this.grade = attrs.grade
     };
     listSubjects(){
         return this.favSubjects.toString();
@@ -42,6 +47,13 @@ class Student extends Person{
     };
     sprintChallenge(subject){
         return `${this.name} has begun sprint challenge on ${subject}`
+    }
+    gradute(){
+        if(this.grade<70){
+            return `${this.name} needs to rethink the choices he's made`
+        }else{
+            return `${this.name} has graduated from Lambda School and is a baller!`
+        }
     }
 };
 
@@ -74,7 +86,8 @@ const fred = new Instructor({
     age: 35,
     previousBackground: 'None',
     className: 'Web 25',
-    favSubjects: [" HTML", " CSS", " JavaScript"]
+    favSubjects: [" HTML", " CSS", " JavaScript"],
+    grade: 100
   });
 
   const austin = new ProjectManager({
@@ -105,3 +118,16 @@ console.log(anthony.sprintChallenge("JavaScript Fundamentals"))
 console.log(austin.catchPhrase);
 console.log(austin.debugsCode("anthony", "java"));
 console.log(austin.standUp('web25_austin'));
+//*****************************STRETCH************************************/
+
+console.log(anthony.grade)
+console.log(fred.gradeStudent(anthony));
+console.log(anthony.gradute());
+
+console.log(austin.gradeStudent(anthony))
+console.log(anthony.gradute())
+
+
+
+
+
